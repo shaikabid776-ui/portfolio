@@ -1,11 +1,11 @@
 import { ArrowUpRight, FileDown, Mail } from "lucide-react";
 import CopyEmailButton from "@/components/CopyEmailButton";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import GitHubIcon from "@/components/ui/GitHubIcon";
 import LinkedInIcon from "@/components/ui/LinkedInIcon";
 import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { focusRing } from "@/components/ui/focusRing";
 import { contact, profile } from "@/data/content";
 
 const revealStagger = 0.1;
@@ -29,7 +29,7 @@ export default function Contact() {
   return (
     <section id="contact" className="border-t border-line py-24 md:py-32">
       <Container>
-        <Reveal>
+        <Reveal blur>
           <SectionLabel index={contact.index} label={contact.label} />
           <h2 className="mt-6 font-serif text-5xl leading-[1] tracking-tight md:text-7xl lg:text-8xl">
             {contact.heading.lead}
@@ -60,16 +60,15 @@ function ContactPill({ link }: { link: ContactLink }) {
   const { href, label, Icon, isExternal, isDownload } = link;
 
   return (
-    <a
+    <Button
       href={href}
       download={isDownload || undefined}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm transition-colors hover:border-accent motion-off:transition-none ${focusRing}`}
     >
       <Icon aria-hidden="true" className="size-4" />
       {label}
       <ArrowUpRight aria-hidden="true" className="size-4 text-muted" />
-    </a>
+    </Button>
   );
 }

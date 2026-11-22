@@ -1,4 +1,5 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { focusRing } from "@/components/ui/focusRing";
@@ -18,27 +19,23 @@ export default function Hero() {
             </p>
           </Reveal>
 
-          <Reveal delay={entranceStagger}>
-            <h1 className="mt-8 font-serif text-[clamp(3.5rem,12vw,8.75rem)] leading-[0.9] tracking-tight">
-              {hero.firstName} <em>{hero.lastName}</em>
-            </h1>
-          </Reveal>
+          {/* The name renders as-is, so it is visible without JavaScript and is not delayed as the largest paint. */}
+          <h1 className="mt-8 font-serif text-[clamp(3.5rem,12vw,8.75rem)] leading-[0.9] tracking-tight">
+            {hero.firstName} <em>{hero.lastName}</em>
+          </h1>
 
-          <Reveal delay={entranceStagger * 2}>
+          <Reveal delay={entranceStagger}>
             <p className="mt-8 max-w-[520px] text-lg text-muted">{profile.tagline}</p>
           </Reveal>
 
-          <Reveal delay={entranceStagger * 3} className="mt-10 flex flex-wrap items-center gap-8">
-            <a
-              href={`#${hero.primaryAction.sectionId}`}
-              className={`group inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm transition-colors hover:border-accent motion-off:transition-none ${focusRing}`}
-            >
+          <Reveal delay={entranceStagger * 2} className="mt-10 flex flex-wrap items-center gap-8">
+            <Button href={`#${hero.primaryAction.sectionId}`}>
               {hero.primaryAction.label}
               <ArrowDown
                 aria-hidden="true"
                 className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
               />
-            </a>
+            </Button>
 
             <a
               href={`#${hero.secondaryAction.sectionId}`}

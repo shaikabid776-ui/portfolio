@@ -9,7 +9,7 @@ export default function About() {
   return (
     <section id="about" className="border-t border-line py-24 md:py-32">
       <Container className="grid gap-12 md:grid-cols-2 md:gap-16">
-        <Reveal>
+        <Reveal blur>
           <SectionLabel index={about.index} label={about.label} />
           <SectionHeading heading={about.heading} />
         </Reveal>

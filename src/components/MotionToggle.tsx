@@ -10,10 +10,15 @@ export default function MotionToggle() {
   return (
     <button
       type="button"
+      aria-pressed={isMotionEnabled}
       onClick={toggleMotion}
-      className={`fixed right-4 bottom-4 z-50 rounded-full border border-line bg-bg/70 px-4 py-2 font-mono text-xs uppercase tracking-widest text-muted backdrop-blur-md transition-colors hover:text-fg motion-off:transition-none ${focusRing}`}
+      className={`fixed right-4 bottom-4 z-50 flex items-center gap-2 rounded-full border border-line bg-bg/70 px-4 py-2 font-mono text-xs uppercase tracking-widest text-muted backdrop-blur-md transition-colors hover:text-fg motion-off:transition-none ${focusRing}`}
     >
-      {isMotionEnabled ? motionToggle.onLabel : motionToggle.offLabel}
+      <span
+        aria-hidden="true"
+        className={`size-1.5 rounded-full ${isMotionEnabled ? "bg-accent" : "bg-muted/40"}`}
+      />
+      {motionToggle.label}
     </button>
   );
 }

@@ -9,7 +9,7 @@ export default function HowIWork() {
   return (
     <section id="how-i-work" className="border-t border-line py-24 md:py-32">
       <Container className="grid gap-12 md:grid-cols-2 md:gap-16">
-        <Reveal>
+        <Reveal blur>
           <SectionLabel index={howIWork.index} label={howIWork.label} />
           <SectionHeading heading={howIWork.heading} />
           <p className="mt-6 text-lg text-muted">{howIWork.intro}</p>

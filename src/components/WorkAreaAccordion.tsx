@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useMotion } from "@/components/MotionProvider";
 import { focusRing } from "@/components/ui/focusRing";
@@ -74,7 +74,7 @@ function AccordionItem({ area, number, idPrefix, isOpen, onToggle }: AccordionIt
       {/* Skipping the mount animation keeps the default-open item static on first load. */}
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             id={panelId}
             role="region"
             aria-labelledby={buttonId}
@@ -96,7 +96,7 @@ function AccordionItem({ area, number, idPrefix, isOpen, onToggle }: AccordionIt
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

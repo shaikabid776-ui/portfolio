@@ -10,7 +10,7 @@ export default function Journey() {
   return (
     <section id="journey" className="border-t border-line py-24 md:py-32">
       <Container className="grid gap-12 md:grid-cols-2 md:gap-16">
-        <Reveal>
+        <Reveal blur>
           <SectionLabel index={journey.index} label={journey.label} />
           <SectionHeading heading={journey.heading} />
         </Reveal>

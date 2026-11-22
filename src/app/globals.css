@@ -64,6 +64,13 @@ section[id] {
   scroll-margin-top: 6rem;
 }
 
+/* Without JavaScript, or when hydration is too slow, revealed content must never stay hidden. */
+:root:not([data-reveal-state]) [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);

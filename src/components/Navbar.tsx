@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { navigation, profile } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import Button from "@/components/ui/Button";
 import { focusRing } from "@/components/ui/focusRing";
 import ScrambleText from "@/components/ui/ScrambleText";
 
@@ -48,7 +49,7 @@ export default function Navbar() {
       className="fixed inset-x-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-[720px]"
     >
       <div className="flex items-center gap-6 rounded-full border border-line bg-bg/70 py-2 pr-2 pl-6 backdrop-blur-md">
-        <a href="#top" className={`font-serif text-xl ${focusRing}`}>
+        <a href="#top" className={`font-serif text-xl whitespace-nowrap ${focusRing}`}>
           {profile.name}
         </a>
 
@@ -81,16 +82,18 @@ export default function Navbar() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 md:ml-0">
-          <a
+          {/* Hidden on the narrowest screens so the bar fits; Contact stays reachable from the menu. */}
+          <Button
             href={`#${navigation.callToAction.sectionId}`}
-            className={`group flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-accent motion-off:transition-none ${focusRing}`}
+            size="small"
+            className="max-sm:hidden"
           >
             <ScrambleText text={navigation.callToAction.label} />
             <ArrowUpRight
               aria-hidden="true"
               className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
             />
-          </a>
+          </Button>
 
           <button
             ref={menuButtonRef}

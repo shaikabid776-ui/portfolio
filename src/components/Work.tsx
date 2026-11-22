@@ -9,13 +9,14 @@ import { profile, work, type WorkItem } from "@/data/content";
 
 const rowStagger = 0.1;
 
-const iconLinkClassName = `text-muted transition-colors hover:text-accent motion-off:transition-none ${focusRing}`;
+// The negative margin keeps the 40px hit area from shifting the 20px icon out of line.
+const iconLinkClassName = `-m-2.5 inline-flex size-10 items-center justify-center text-muted transition-colors hover:text-accent motion-off:transition-none ${focusRing}`;
 
 export default function Work() {
   return (
     <section id="work" className="border-t border-line py-24 md:py-32">
       <Container>
-        <Reveal className="md:flex md:items-end md:justify-between md:gap-16">
+        <Reveal blur className="md:flex md:items-end md:justify-between md:gap-16">
           <div>
             <SectionLabel index={work.index} label={work.label} />
             <SectionHeading heading={work.heading} />
@@ -85,7 +86,7 @@ function ProjectMeta({ project }: { project: WorkItem }) {
   }
 
   return (
-    <div className="flex items-start gap-4">
+    <div className="flex items-start gap-1">
       {project.github && (
         <a
           href={project.github}

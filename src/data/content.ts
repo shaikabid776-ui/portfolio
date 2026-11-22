@@ -9,6 +9,12 @@ export type Profile = {
   resume: string;
 };
 
+export type SiteMetadata = {
+  title: string;
+  description: string;
+  openGraphImageAlt: string;
+};
+
 export type Stat = {
   value: number;
   suffix?: string;
@@ -133,6 +139,12 @@ export const profile: Profile = {
   resume: "/Abid_Shaik_Resume.pdf",
 };
 
+export const siteMetadata: SiteMetadata = {
+  title: `${profile.name} — ${profile.role}`,
+  description: profile.tagline,
+  openGraphImageAlt: `${profile.name}, ${profile.role}`,
+};
+
 export const navigation: Navigation = {
   links: [
     { label: "About", sectionId: "about" },
@@ -145,13 +157,11 @@ export const navigation: Navigation = {
 };
 
 export type MotionToggleContent = {
-  onLabel: string;
-  offLabel: string;
+  label: string;
 };
 
 export const motionToggle: MotionToggleContent = {
-  onLabel: "Motion on",
-  offLabel: "Motion off",
+  label: "Motion",
 };
 
 export const hero: HeroContent = {

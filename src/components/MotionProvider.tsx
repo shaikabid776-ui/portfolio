@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useSyncExternalStore } from "react";
-import { MotionConfig } from "framer-motion";
+import { LazyMotion, MotionConfig, domAnimation } from "framer-motion";
 import { motionStorageKey } from "@/components/motionPreference";
 
 const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
@@ -73,9 +73,12 @@ export function MotionProvider({ children }: MotionProviderProps) {
 
   return (
     <MotionContext value={value}>
-      <MotionConfig reducedMotion={isMotionEnabled ? "never" : "always"}>
-        {children}
-      </MotionConfig>
+      {/* Strict mode throws on any full motion component, which would pull the whole bundle back in. */}
+      <LazyMotion features={domAnimation} strict>
+        <MotionConfig reducedMotion={isMotionEnabled ? "never" : "always"}>
+          {children}
+        </MotionConfig>
+      </LazyMotion>
     </MotionContext>
   );
 }
