@@ -15,10 +15,31 @@ export type Stat = {
   label: string;
 };
 
+export type SectionHeadingContent = {
+  lead: string;
+  emphasis: string;
+};
+
+export type AboutContent = {
+  index: string;
+  label: string;
+  heading: SectionHeadingContent;
+  paragraph: string;
+  photoAlt: string;
+};
+
 export type JourneyStep = {
   period: string;
   title: string;
   description: string;
+  isCurrent?: boolean;
+};
+
+export type JourneyContent = {
+  index: string;
+  label: string;
+  heading: SectionHeadingContent;
+  steps: JourneyStep[];
 };
 
 export type WorkArea = {
@@ -98,38 +119,56 @@ export const stats: Stat[] = [
   { value: 10, suffix: "+", label: "Projects shipped" },
 ];
 
-export const about: string =
-  "I started in Dharmavaram with a B.Sc in Maths, Physics and Computer Science, trained in Python full-stack, and joined Sirpi in Bengaluru as a frontend intern. Five months later I was full-time. Today I lead the frontend on a production-planning platform, build FastAPI backends on a life-science platform, and work directly with clients to turn their needs into software.";
+export const about: AboutContent = {
+  index: "01",
+  label: "About",
+  heading: {
+    lead: "Good software starts with",
+    emphasis: "understanding people.",
+  },
+  paragraph:
+    "I started in Dharmavaram with a B.Sc in Maths, Physics and Computer Science, trained in Python full-stack, and joined Sirpi in Bengaluru as a frontend intern. Five months later I was full-time. Today I lead the frontend on a production-planning platform, build FastAPI backends on a life-science platform, and work directly with clients to turn their needs into software.",
+  photoAlt: "Portrait of Abid Shaik",
+};
 
-export const journey: JourneyStep[] = [
-  {
-    period: "2025",
-    title: "Training",
-    description: "Python full-stack training: Flask, FastAPI, MySQL, REST APIs.",
+export const journey: JourneyContent = {
+  index: "02",
+  label: "Journey",
+  heading: {
+    lead: "Started with code.",
+    emphasis: "Kept asking why.",
   },
-  {
-    period: "Dec 2025",
-    title: "Frontend intern at Sirpi",
-    description: "React, Angular and TypeScript on enterprise apps.",
-  },
-  {
-    period: "May 2026",
-    title: "Full-time Frontend Engineer",
-    description:
-      "Shipped AI-powered EdTech, social media automation and data portal apps.",
-  },
-  {
-    period: "Now",
-    title: "Frontend lead + backend",
-    description:
-      "Leading a production-planning frontend, building FastAPI APIs, coordinating with clients.",
-  },
-  {
-    period: "Next",
-    title: "Full stack + AI",
-    description: "Building AI-powered products end to end.",
-  },
-];
+  steps: [
+    {
+      period: "2025",
+      title: "Training",
+      description: "Python full-stack training: Flask, FastAPI, MySQL, REST APIs.",
+    },
+    {
+      period: "Dec 2025",
+      title: "Frontend intern at Sirpi",
+      description: "React, Angular and TypeScript on enterprise apps.",
+    },
+    {
+      period: "May 2026",
+      title: "Full-time Frontend Engineer",
+      description:
+        "Shipped AI-powered EdTech, social media automation and data portal apps.",
+    },
+    {
+      period: "Now",
+      isCurrent: true,
+      title: "Frontend lead + backend",
+      description:
+        "Leading a production-planning frontend, building FastAPI APIs, coordinating with clients.",
+    },
+    {
+      period: "Next",
+      title: "Full stack + AI",
+      description: "Building AI-powered products end to end.",
+    },
+  ],
+};
 
 export const howIWork: WorkArea[] = [
   {

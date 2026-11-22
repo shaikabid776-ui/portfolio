@@ -17,6 +17,18 @@
   --font-serif: var(--font-instrument-serif);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+  --animate-soft-pulse: soft-pulse 2s ease-out infinite;
+
+  @keyframes soft-pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    to {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
 }
 
 html {
