@@ -65,7 +65,7 @@ function ContactPill({ link }: { link: ContactLink }) {
       download={isDownload || undefined}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm transition-colors hover:border-accent motion-reduce:transition-none ${focusRing}`}
+      className={`inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm transition-colors hover:border-accent motion-off:transition-none ${focusRing}`}
     >
       <Icon aria-hidden="true" className="size-4" />
       {label}

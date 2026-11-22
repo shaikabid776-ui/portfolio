@@ -22,7 +22,7 @@ export default function About() {
             width={400}
             height={400}
             sizes="320px"
-            className="mt-10 w-full max-w-80 rounded-2xl border border-line grayscale transition-[filter] duration-500 hover:grayscale-0 motion-reduce:transition-none"
+            className="mt-10 w-full max-w-80 rounded-2xl border border-line grayscale transition-[filter] duration-500 hover:grayscale-0 motion-off:transition-none"
           />
         </Reveal>
       </Container>

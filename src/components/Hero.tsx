@@ -31,23 +31,23 @@ export default function Hero() {
           <Reveal delay={entranceStagger * 3} className="mt-10 flex flex-wrap items-center gap-8">
             <a
               href={`#${hero.primaryAction.sectionId}`}
-              className={`group inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm transition-colors hover:border-accent motion-reduce:transition-none ${focusRing}`}
+              className={`group inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm transition-colors hover:border-accent motion-off:transition-none ${focusRing}`}
             >
               {hero.primaryAction.label}
               <ArrowDown
                 aria-hidden="true"
-                className="size-4 transition-colors group-hover:text-accent motion-reduce:transition-none"
+                className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
               />
             </a>
 
             <a
               href={`#${hero.secondaryAction.sectionId}`}
-              className={`group inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-fg motion-reduce:transition-none ${focusRing}`}
+              className={`group inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-fg motion-off:transition-none ${focusRing}`}
             >
               {hero.secondaryAction.label}
               <ArrowUpRight
                 aria-hidden="true"
-                className="size-4 transition-colors group-hover:text-accent motion-reduce:transition-none"
+                className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
               />
             </a>
           </Reveal>

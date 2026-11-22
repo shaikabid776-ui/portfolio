@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { navigation, profile } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { focusRing } from "@/components/ui/focusRing";
+import ScrambleText from "@/components/ui/ScrambleText";
 
 const sectionIds = navigation.links.map((link) => link.sectionId);
 
@@ -61,11 +62,11 @@ export default function Navbar() {
                   <a
                     href={`#${link.sectionId}`}
                     aria-current={isActive ? "location" : undefined}
-                    className={`relative text-sm transition-colors hover:text-fg motion-reduce:transition-none ${
+                    className={`relative text-sm transition-colors hover:text-fg motion-off:transition-none ${
                       isActive ? "text-fg" : "text-muted"
                     } ${focusRing}`}
                   >
-                    {link.label}
+                    <ScrambleText text={link.label} />
                     {isActive && (
                       <span
                         aria-hidden="true"
@@ -82,12 +83,12 @@ export default function Navbar() {
         <div className="ml-auto flex items-center gap-2 md:ml-0">
           <a
             href={`#${navigation.callToAction.sectionId}`}
-            className={`group flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-accent motion-reduce:transition-none ${focusRing}`}
+            className={`group flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-accent motion-off:transition-none ${focusRing}`}
           >
-            {navigation.callToAction.label}
+            <ScrambleText text={navigation.callToAction.label} />
             <ArrowUpRight
               aria-hidden="true"
-              className="size-4 transition-colors group-hover:text-accent motion-reduce:transition-none"
+              className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
             />
           </a>
 
@@ -97,7 +98,7 @@ export default function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
-            className={`rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-fg motion-reduce:transition-none md:hidden ${focusRing}`}
+            className={`rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-fg motion-off:transition-none md:hidden ${focusRing}`}
           >
             {navigation.menuLabel}
           </button>
@@ -119,7 +120,7 @@ export default function Navbar() {
                   href={`#${link.sectionId}`}
                   aria-current={isActive ? "location" : undefined}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors hover:text-fg motion-reduce:transition-none ${
+                  className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors hover:text-fg motion-off:transition-none ${
                     isActive ? "text-fg" : "text-muted"
                   } ${focusRing}`}
                 >
@@ -127,7 +128,7 @@ export default function Navbar() {
                     aria-hidden="true"
                     className={`size-1.5 rounded-full ${isActive ? "bg-accent" : "bg-line"}`}
                   />
-                  {link.label}
+                  <ScrambleText text={link.label} />
                 </a>
               </li>
             );

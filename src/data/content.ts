@@ -144,6 +144,16 @@ export const navigation: Navigation = {
   menuLabel: "Menu",
 };
 
+export type MotionToggleContent = {
+  onLabel: string;
+  offLabel: string;
+};
+
+export const motionToggle: MotionToggleContent = {
+  onLabel: "Motion on",
+  offLabel: "Motion off",
+};
+
 export const hero: HeroContent = {
   kicker: "Frontend · Backend · AI",
   firstName: "Abid",

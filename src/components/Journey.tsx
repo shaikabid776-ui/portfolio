@@ -39,7 +39,7 @@ function TimelineDot({ isCurrent = false }: { isCurrent?: boolean }) {
     // Centred on the list's 1px left border.
     <span aria-hidden="true" className="absolute top-1.5 -left-[4.5px] flex size-2">
       {isCurrent && (
-        <span className="absolute inset-0 animate-soft-pulse rounded-full bg-accent motion-reduce:animate-none" />
+        <span className="absolute inset-0 animate-soft-pulse rounded-full bg-accent motion-off:animate-none" />
       )}
       <span className={`relative size-2 rounded-full ${isCurrent ? "bg-accent" : "bg-line"}`} />
     </span>

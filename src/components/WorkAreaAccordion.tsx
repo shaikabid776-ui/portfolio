@@ -1,8 +1,9 @@
 "use client";
 
 import { useId, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { useMotion } from "@/components/MotionProvider";
 import { focusRing } from "@/components/ui/focusRing";
 import type { WorkArea } from "@/data/content";
 
@@ -43,7 +44,7 @@ type AccordionItemProps = {
 };
 
 function AccordionItem({ area, number, idPrefix, isOpen, onToggle }: AccordionItemProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const { isMotionEnabled } = useMotion();
   const buttonId = `${idPrefix}-button`;
   const panelId = `${idPrefix}-panel`;
 
@@ -63,7 +64,7 @@ function AccordionItem({ area, number, idPrefix, isOpen, onToggle }: AccordionIt
           <span className="flex-1 font-serif text-2xl md:text-3xl">{area.title}</span>
           <Plus
             aria-hidden="true"
-            className={`size-5 shrink-0 text-muted transition-transform duration-300 motion-reduce:transition-none ${
+            className={`size-5 shrink-0 text-muted transition-transform duration-300 motion-off:transition-none ${
               isOpen ? "rotate-45" : ""
             }`}
           />
@@ -81,7 +82,7 @@ function AccordionItem({ area, number, idPrefix, isOpen, onToggle }: AccordionIt
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={
-              prefersReducedMotion ? { duration: 0 } : { duration: 0.3, ease: "easeOut" }
+              isMotionEnabled ? { duration: 0.3, ease: "easeOut" } : { duration: 0 }
             }
             className="overflow-hidden"
           >

@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Motion is off when the user chose "off", or when the OS asks for reduced motion and the user has not chosen "on". */
+@custom-variant motion-off {
+  [data-motion="off"] & {
+    @slot;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root:not([data-motion="on"]) & {
+      @slot;
+    }
+  }
+}
+
 :root {
   --bg: #0a0a0b;
   --fg: #ededed;
@@ -35,9 +48,14 @@ html {
   color-scheme: dark;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
+/* Mirrors the motion-off variant, which cannot target <html> itself. */
+html:not([data-motion="off"]) {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="on"]) {
+    scroll-behavior: auto;
   }
 }
 

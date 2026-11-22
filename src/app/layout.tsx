@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import MotionToggle from "@/components/MotionToggle";
 import Navbar from "@/components/Navbar";
+import { MotionProvider } from "@/components/MotionProvider";
+import { motionPreferenceScript } from "@/components/motionPreference";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -30,10 +33,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      // The head script may set data-motion before React hydrates.
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionPreferenceScript }} />
+      </head>
       <body id="top" className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
+        <MotionProvider>
+          <Navbar />
+          {children}
+          <MotionToggle />
+        </MotionProvider>
       </body>
     </html>
   );

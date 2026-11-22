@@ -37,7 +37,7 @@ export default function CopyEmailButton() {
       <button
         type="button"
         onClick={copyEmail}
-        className={`inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-accent motion-reduce:transition-none ${focusRing}`}
+        className={`inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-accent motion-off:transition-none ${focusRing}`}
       >
         <Icon aria-hidden="true" className="size-4" />
         {isCopied ? contact.copiedLabel : contact.copyLabel}

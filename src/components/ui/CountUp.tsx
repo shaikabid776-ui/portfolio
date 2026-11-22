@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, useInView, useReducedMotion } from "framer-motion";
+import { animate, useInView } from "framer-motion";
+import { useMotion } from "@/components/MotionProvider";
 
 type CountUpProps = {
   value: number;
@@ -10,7 +11,7 @@ type CountUpProps = {
 export default function CountUp({ value }: CountUpProps) {
   const numberRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(numberRef, { once: true });
-  const prefersReducedMotion = useReducedMotion();
+  const { isMotionEnabled } = useMotion();
 
   useEffect(() => {
     const numberElement = numberRef.current;
@@ -18,12 +19,13 @@ export default function CountUp({ value }: CountUpProps) {
       return;
     }
 
-    if (prefersReducedMotion) {
+    if (!isMotionEnabled) {
       numberElement.textContent = String(value);
       return;
     }
 
-    if (!isInView) {
+    // Once the final number is showing, turning motion back on must not replay the count.
+    if (!isInView || numberElement.textContent === String(value)) {
       return;
     }
 
@@ -37,7 +39,7 @@ export default function CountUp({ value }: CountUpProps) {
     });
 
     return () => controls.stop();
-  }, [isInView, prefersReducedMotion, value]);
+  }, [isInView, isMotionEnabled, value]);
 
   return (
     <>

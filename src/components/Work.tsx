@@ -9,7 +9,7 @@ import { profile, work, type WorkItem } from "@/data/content";
 
 const rowStagger = 0.1;
 
-const iconLinkClassName = `text-muted transition-colors hover:text-accent motion-reduce:transition-none ${focusRing}`;
+const iconLinkClassName = `text-muted transition-colors hover:text-accent motion-off:transition-none ${focusRing}`;
 
 export default function Work() {
   return (
@@ -39,7 +39,7 @@ export default function Work() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-fg underline underline-offset-4 transition-colors hover:text-accent motion-reduce:transition-none ${focusRing}`}
+            className={`text-fg underline underline-offset-4 transition-colors hover:text-accent motion-off:transition-none ${focusRing}`}
           >
             {work.note.linkLabel}
           </a>
@@ -56,14 +56,14 @@ type ProjectRowProps = {
 
 function ProjectRow({ project, number }: ProjectRowProps) {
   return (
-    <div className="grid gap-4 py-10 transition-transform duration-300 ease-out md:grid-cols-[10rem_1fr_auto] md:gap-8 md:group-hover:translate-x-2 motion-reduce:transition-none motion-reduce:md:group-hover:translate-x-0">
+    <div className="grid gap-4 py-10 transition-transform duration-300 ease-out md:grid-cols-[10rem_1fr_auto] md:gap-8 md:group-hover:translate-x-2 motion-off:transition-none motion-off:md:group-hover:translate-x-0">
       <p className="flex gap-4 font-mono text-xs uppercase tracking-widest text-muted md:flex-col md:gap-2">
         <span>{String(number).padStart(2, "0")}</span>
         <span>{project.category}</span>
       </p>
 
       <div>
-        <h3 className="font-serif text-3xl leading-tight transition-colors duration-300 group-hover:text-accent motion-reduce:transition-none md:text-4xl">
+        <h3 className="font-serif text-3xl leading-tight transition-colors duration-300 group-hover:text-accent motion-off:transition-none md:text-4xl">
           {project.title}
         </h3>
         <p className="mt-3 max-w-2xl text-muted">{project.description}</p>
