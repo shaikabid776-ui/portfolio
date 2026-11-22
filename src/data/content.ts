@@ -82,6 +82,24 @@ export type WorkContent = {
   projects: WorkItem[];
 };
 
+export type ContactContent = {
+  index: string;
+  label: string;
+  heading: SectionHeadingContent;
+  intro: string;
+  emailLabel: string;
+  linkedinLabel: string;
+  githubLabel: string;
+  resumeLabel: string;
+  copyLabel: string;
+  copiedLabel: string;
+  copiedAnnouncement: string;
+};
+
+export type FooterContent = {
+  builtWith: string;
+};
+
 export type NavigationLink = {
   label: string;
   sectionId: string;
@@ -277,4 +295,25 @@ export const work: WorkContent = {
       company: true,
     },
   ],
+};
+
+export const contact: ContactContent = {
+  index: "05",
+  label: "Contact",
+  heading: {
+    lead: "Something good starts",
+    emphasis: "with a hello.",
+  },
+  intro: "Open to full-stack roles and interesting projects.",
+  emailLabel: "Email",
+  linkedinLabel: "LinkedIn",
+  githubLabel: "GitHub",
+  resumeLabel: "Download resume",
+  copyLabel: "Copy email",
+  copiedLabel: "Copied",
+  copiedAnnouncement: "Email copied to clipboard",
+};
+
+export const footer: FooterContent = {
+  builtWith: "Built with Next.js · Bengaluru",
 };

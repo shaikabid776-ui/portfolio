@@ -1,4 +1,6 @@
 import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HowIWork from "@/components/HowIWork";
 import Journey from "@/components/Journey";
@@ -7,14 +9,17 @@ import Work from "@/components/Work";
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <Hero />
-      <Stats />
-      <About />
-      <Journey />
-      <HowIWork />
-      <Work />
-      <section id="contact" className="min-h-screen border-t border-line" />
-    </main>
+    <>
+      <main className="flex-1">
+        <Hero />
+        <Stats />
+        <About />
+        <Journey />
+        <HowIWork />
+        <Work />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
