@@ -16,14 +16,17 @@ export default function About() {
 
         <Reveal delay={0.1}>
           <p className="text-lg leading-relaxed text-muted">{about.paragraph}</p>
-          <Image
-            src="/abid.jpg"
-            alt={about.photoAlt}
-            width={400}
-            height={400}
-            sizes="320px"
-            className="mt-10 w-full max-w-80 rounded-2xl border border-line grayscale transition-[filter] duration-500 hover:grayscale-0 motion-off:transition-none"
-          />
+          {/* The photo has dark bands baked into its side edges; a slight zoom crops them out. */}
+          <div className="mt-10 w-full max-w-80 overflow-hidden rounded-2xl border border-line">
+            <Image
+              src="/abid.jpg"
+              alt={about.photoAlt}
+              width={400}
+              height={400}
+              sizes="320px"
+              className="block w-full scale-110"
+            />
+          </div>
         </Reveal>
       </Container>
     </section>

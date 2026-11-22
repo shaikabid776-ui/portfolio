@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
@@ -28,7 +28,7 @@ export default function Hero() {
             <p className="mt-8 max-w-[520px] text-lg text-muted">{profile.tagline}</p>
           </Reveal>
 
-          <Reveal delay={entranceStagger * 2} className="mt-10 flex flex-wrap items-center gap-8">
+          <Reveal delay={entranceStagger * 2} className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Button href={`#${hero.primaryAction.sectionId}`}>
               {hero.primaryAction.label}
               <ArrowDown
@@ -47,6 +47,14 @@ export default function Hero() {
                 className={`size-4 group-hover:text-accent ${colorTransition}`}
               />
             </a>
+
+            <Button href={profile.resume} download>
+              {hero.resumeLabel}
+              <Download
+                aria-hidden="true"
+                className={`size-4 group-hover:text-accent ${colorTransition}`}
+              />
+            </Button>
           </Reveal>
         </div>
 

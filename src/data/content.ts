@@ -128,6 +128,7 @@ export type HeroContent = {
   lastName: string;
   primaryAction: NavigationLink;
   secondaryAction: NavigationLink;
+  resumeLabel: string;
   scrollHint: string;
   basedInLabel: string;
 };
@@ -173,6 +174,7 @@ export const hero: HeroContent = {
   lastName: "Shaik",
   primaryAction: { label: "View my work", sectionId: "work" },
   secondaryAction: { label: "Contact me", sectionId: "contact" },
+  resumeLabel: "Resume",
   scrollHint: "Scroll to discover",
   basedInLabel: "Based in",
 };
@@ -204,9 +206,16 @@ export const journey: JourneyContent = {
   },
   steps: [
     {
+      period: "2022 – 2025",
+      title: "B.Sc (MPCS), CGPA 8.8/10",
+      description:
+        "Sri Krishnadevaraya University, Anantapur. Maths, Physics and Computer Science.",
+    },
+    {
       period: "2025",
       title: "Training",
-      description: "Python full-stack training: Flask, FastAPI, MySQL, REST APIs.",
+      description:
+        "Python full-stack training at MITRAz Foundation: Flask, FastAPI, MySQL, REST APIs. Certified in Full-Stack Development & Data Analytics (Oct 2025).",
     },
     {
       period: "Dec 2025",
