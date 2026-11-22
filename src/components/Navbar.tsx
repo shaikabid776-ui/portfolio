@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { navigation, profile } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { focusRing } from "@/components/ui/focusRing";
 
 const sectionIds = navigation.links.map((link) => link.sectionId);
-
-const focusRing =
-  "outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
 
 export default function Navbar() {
   const activeSectionId = useActiveSection(sectionIds);

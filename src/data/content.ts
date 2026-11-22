@@ -49,6 +49,16 @@ export type Navigation = {
   menuLabel: string;
 };
 
+export type HeroContent = {
+  kicker: string;
+  firstName: string;
+  lastName: string;
+  primaryAction: NavigationLink;
+  secondaryAction: NavigationLink;
+  scrollHint: string;
+  basedIn: string;
+};
+
 export const profile: Profile = {
   name: "Abid Shaik",
   role: "Frontend Engineer → Full Stack",
@@ -70,6 +80,16 @@ export const navigation: Navigation = {
   ],
   callToAction: { label: "Let's talk", sectionId: "contact" },
   menuLabel: "Menu",
+};
+
+export const hero: HeroContent = {
+  kicker: "Frontend · Backend · AI",
+  firstName: "Abid",
+  lastName: "Shaik",
+  primaryAction: { label: "View my work", sectionId: "work" },
+  secondaryAction: { label: "Contact me", sectionId: "contact" },
+  scrollHint: "Scroll to discover",
+  basedIn: "Based in Bengaluru",
 };
 
 export const stats: Stat[] = [
