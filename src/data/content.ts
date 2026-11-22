@@ -48,6 +48,14 @@ export type WorkArea = {
   skills: string[];
 };
 
+export type HowIWorkContent = {
+  index: string;
+  label: string;
+  heading: SectionHeadingContent;
+  intro: string;
+  areas: WorkArea[];
+};
+
 export type WorkItem = {
   title: string;
   category: string;
@@ -170,31 +178,40 @@ export const journey: JourneyContent = {
   ],
 };
 
-export const howIWork: WorkArea[] = [
-  {
-    title: "Frontend",
-    description:
-      "I build fast, accessible interfaces that turn complex data into screens people can use.",
-    skills: ["React", "TypeScript", "Angular", "Tailwind CSS", "TanStack Query"],
+export const howIWork: HowIWorkContent = {
+  index: "03",
+  label: "How I work",
+  heading: {
+    lead: "How I work.",
+    emphasis: "From idea to product.",
   },
-  {
-    title: "Backend",
-    description:
-      "I design REST APIs and database models in FastAPI and PostgreSQL, with migrations and tests.",
-    skills: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic"],
-  },
-  {
-    title: "Working with clients",
-    description:
-      "I turn client conversations into clear requirements, developer tickets and demos.",
-    skills: [
-      "Requirements",
-      "Developer tickets",
-      "Demos",
-      "User-flow documents",
-    ],
-  },
-];
+  intro: "Three areas I bring to every project.",
+  areas: [
+    {
+      title: "Frontend",
+      description:
+        "I build fast, accessible interfaces that turn complex data into screens people can use.",
+      skills: ["React", "TypeScript", "Angular", "Tailwind CSS", "TanStack Query"],
+    },
+    {
+      title: "Backend",
+      description:
+        "I design REST APIs and database models in FastAPI and PostgreSQL, with migrations and tests.",
+      skills: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic"],
+    },
+    {
+      title: "Working with clients",
+      description:
+        "I turn client conversations into clear requirements, developer tickets and demos.",
+      skills: [
+        "Requirements",
+        "Developer tickets",
+        "Demos",
+        "User-flow documents",
+      ],
+    },
+  ],
+};
 
 export const work: WorkItem[] = [
   {

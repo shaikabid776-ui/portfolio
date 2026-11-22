@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
+import HowIWork from "@/components/HowIWork";
 import Journey from "@/components/Journey";
 import Stats from "@/components/Stats";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Stats />
       <About />
       <Journey />
+      <HowIWork />
       <section id="work" className="min-h-screen border-t border-line" />
       <section id="contact" className="min-h-screen border-t border-line" />
     </main>
