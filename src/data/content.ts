@@ -1,0 +1,151 @@
+export type Profile = {
+  name: string;
+  role: string;
+  location: string;
+  tagline: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  resume: string;
+};
+
+export type Stat = {
+  value: number;
+  suffix?: string;
+  label: string;
+};
+
+export type JourneyStep = {
+  period: string;
+  title: string;
+  description: string;
+};
+
+export type WorkArea = {
+  title: string;
+  description: string;
+  skills: string[];
+};
+
+export type WorkItem = {
+  title: string;
+  category: string;
+  description: string;
+  tags: string[];
+  company: boolean;
+  github?: string;
+  live?: string;
+  image?: string;
+};
+
+export const profile: Profile = {
+  name: "Abid Shaik",
+  role: "Frontend Engineer → Full Stack",
+  location: "Bengaluru, India",
+  tagline:
+    "I build web apps that solve real business problems — from clean interfaces to the APIs behind them.",
+  email: "shaikabid776@gmail.com",
+  github: "https://github.com/shaikabid776-ui",
+  linkedin: "https://linkedin.com/in/abid-shaik1",
+  resume: "/Abid_Shaik_Resume.pdf",
+};
+
+export const stats: Stat[] = [
+  { value: 5, suffix: " months", label: "Intern to full-time" },
+  { value: 4, label: "AI APIs integrated in production" },
+  { value: 10, suffix: "+", label: "Projects shipped" },
+];
+
+export const about: string =
+  "I started in Dharmavaram with a B.Sc in Maths, Physics and Computer Science, trained in Python full-stack, and joined Sirpi in Bengaluru as a frontend intern. Five months later I was full-time. Today I lead the frontend on a production-planning platform, build FastAPI backends on a life-science platform, and work directly with clients to turn their needs into software.";
+
+export const journey: JourneyStep[] = [
+  {
+    period: "2025",
+    title: "Training",
+    description: "Python full-stack training: Flask, FastAPI, MySQL, REST APIs.",
+  },
+  {
+    period: "Dec 2025",
+    title: "Frontend intern at Sirpi",
+    description: "React, Angular and TypeScript on enterprise apps.",
+  },
+  {
+    period: "May 2026",
+    title: "Full-time Frontend Engineer",
+    description:
+      "Shipped AI-powered EdTech, social media automation and data portal apps.",
+  },
+  {
+    period: "Now",
+    title: "Frontend lead + backend",
+    description:
+      "Leading a production-planning frontend, building FastAPI APIs, coordinating with clients.",
+  },
+  {
+    period: "Next",
+    title: "Full stack + AI",
+    description: "Building AI-powered products end to end.",
+  },
+];
+
+export const howIWork: WorkArea[] = [
+  {
+    title: "Frontend",
+    description:
+      "I build fast, accessible interfaces that turn complex data into screens people can use.",
+    skills: ["React", "TypeScript", "Angular", "Tailwind CSS", "TanStack Query"],
+  },
+  {
+    title: "Backend",
+    description:
+      "I design REST APIs and database models in FastAPI and PostgreSQL, with migrations and tests.",
+    skills: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic"],
+  },
+  {
+    title: "Working with clients",
+    description:
+      "I turn client conversations into clear requirements, developer tickets and demos.",
+    skills: [
+      "Requirements",
+      "Developer tickets",
+      "Demos",
+      "User-flow documents",
+    ],
+  },
+];
+
+export const work: WorkItem[] = [
+  {
+    title: "Production Planning Platform",
+    category: "Frontend lead",
+    description:
+      "Predicts the delivery week for each sales order by tracing parts, stock and purchase orders, with the reason for any delay.",
+    tags: ["React", "TypeScript", "TanStack Table", "ECharts"],
+    company: true,
+  },
+  {
+    title: "Life-Science Prediction APIs",
+    category: "Backend",
+    description:
+      "Heat-map and export APIs combining results from 4 hosted AI models, with migrations and tests.",
+    tags: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic"],
+    company: true,
+  },
+  {
+    title: "AI-Powered EdTech Platform",
+    category: "Frontend",
+    description:
+      "Multi-role learning platform with AI lessons, quizzes and voice in 10 Indian languages.",
+    tags: ["React", "Zustand", "ElevenLabs", "Sarvam AI"],
+    company: true,
+  },
+  {
+    title: "Social Media Automation Tool",
+    category: "Frontend",
+    description:
+      "Schedules and auto-publishes Instagram and Facebook posts with AI image generation.",
+    tags: ["React", "Supabase", "Meta Graph API", "FAL.ai"],
+    company: true,
+  },
+];
