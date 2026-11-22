@@ -4,13 +4,14 @@ import GitHubIcon from "@/components/ui/GitHubIcon";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { focusRing } from "@/components/ui/focusRing";
+import { colorTransition, focusRing, monoLabel } from "@/components/ui/styles";
 import { profile, work, type WorkItem } from "@/data/content";
+import { formatIndex } from "@/lib/formatIndex";
 
 const rowStagger = 0.1;
 
 // The negative margin keeps the 40px hit area from shifting the 20px icon out of line.
-const iconLinkClassName = `-m-2.5 inline-flex size-10 items-center justify-center text-muted transition-colors hover:text-accent motion-off:transition-none ${focusRing}`;
+const iconLinkClassName = `-m-2.5 inline-flex size-10 items-center justify-center text-muted hover:text-accent ${colorTransition} ${focusRing}`;
 
 export default function Work() {
   return (
@@ -40,7 +41,7 @@ export default function Work() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-fg underline underline-offset-4 transition-colors hover:text-accent motion-off:transition-none ${focusRing}`}
+            className={`text-fg underline underline-offset-4 hover:text-accent ${colorTransition} ${focusRing}`}
           >
             {work.note.linkLabel}
           </a>
@@ -58,13 +59,13 @@ type ProjectRowProps = {
 function ProjectRow({ project, number }: ProjectRowProps) {
   return (
     <div className="grid gap-4 py-10 transition-transform duration-300 ease-out md:grid-cols-[10rem_1fr_auto] md:gap-8 md:group-hover:translate-x-2 motion-off:transition-none motion-off:md:group-hover:translate-x-0">
-      <p className="flex gap-4 font-mono text-xs uppercase tracking-widest text-muted md:flex-col md:gap-2">
-        <span>{String(number).padStart(2, "0")}</span>
+      <p className={`flex gap-4 text-muted md:flex-col md:gap-2 ${monoLabel}`}>
+        <span>{formatIndex(number)}</span>
         <span>{project.category}</span>
       </p>
 
       <div>
-        <h3 className="font-serif text-3xl leading-tight transition-colors duration-300 group-hover:text-accent motion-off:transition-none md:text-4xl">
+        <h3 className={`font-serif text-3xl leading-tight duration-300 group-hover:text-accent md:text-4xl ${colorTransition}`}>
           {project.title}
         </h3>
         <p className="mt-3 max-w-2xl text-muted">{project.description}</p>
@@ -79,7 +80,7 @@ function ProjectRow({ project, number }: ProjectRowProps) {
 function ProjectMeta({ project }: { project: WorkItem }) {
   if (project.company) {
     return (
-      <p className="font-mono text-xs uppercase tracking-widest text-muted">
+      <p className={`text-muted ${monoLabel}`}>
         {work.companyLabel}
       </p>
     );

@@ -2,7 +2,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { focusRing } from "@/components/ui/focusRing";
+import { colorTransition, focusRing, monoLabel } from "@/components/ui/styles";
 import { hero, profile } from "@/data/content";
 
 const entranceStagger = 0.1;
@@ -13,7 +13,7 @@ export default function Hero() {
       <Container className="flex flex-1 flex-col pt-32 pb-8">
         <div className="flex flex-1 flex-col justify-center">
           <Reveal>
-            <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted">
+            <p className={`flex items-center gap-3 text-muted ${monoLabel}`}>
               <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
               {hero.kicker}
             </p>
@@ -33,26 +33,28 @@ export default function Hero() {
               {hero.primaryAction.label}
               <ArrowDown
                 aria-hidden="true"
-                className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
+                className={`size-4 group-hover:text-accent ${colorTransition}`}
               />
             </Button>
 
             <a
               href={`#${hero.secondaryAction.sectionId}`}
-              className={`group inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-fg motion-off:transition-none ${focusRing}`}
+              className={`group inline-flex items-center gap-2 text-sm text-muted hover:text-fg ${colorTransition} ${focusRing}`}
             >
               {hero.secondaryAction.label}
               <ArrowUpRight
                 aria-hidden="true"
-                className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
+                className={`size-4 group-hover:text-accent ${colorTransition}`}
               />
             </a>
           </Reveal>
         </div>
 
-        <div className="flex items-center justify-between font-mono text-xs uppercase tracking-widest text-muted">
+        <div className={`flex items-center justify-between text-muted ${monoLabel}`}>
           <p>{hero.scrollHint}</p>
-          <p>{hero.basedIn}</p>
+          <p>
+            {hero.basedInLabel} {profile.location}
+          </p>
         </div>
       </Container>
     </section>

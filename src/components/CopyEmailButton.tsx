@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { focusRing } from "@/components/ui/focusRing";
+import { colorTransition, focusRing, monoLabel } from "@/components/ui/styles";
 import { contact, profile } from "@/data/content";
 
 const copiedDurationInMilliseconds = 2000;
@@ -38,7 +38,7 @@ export default function CopyEmailButton() {
         type="button"
         onClick={copyEmail}
         // Vertical padding with a matching negative margin gives a 40px hit area without moving the layout.
-        className={`-my-3 inline-flex items-center gap-2 py-3 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-accent motion-off:transition-none ${focusRing}`}
+        className={`-my-3 inline-flex items-center gap-2 py-3 text-muted hover:text-accent ${monoLabel} ${colorTransition} ${focusRing}`}
       >
         <Icon aria-hidden="true" className="size-4" />
         {isCopied ? contact.copiedLabel : contact.copyLabel}

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { m } from "framer-motion";
 import { useMotion } from "@/components/MotionProvider";
-import { markRevealReady } from "@/components/ui/revealState";
+import { markRevealReady } from "@/lib/revealState";
 
 type RevealProps = {
   children: React.ReactNode;

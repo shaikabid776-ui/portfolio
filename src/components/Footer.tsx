@@ -9,7 +9,9 @@ export default function Footer() {
         <p>
           © <CurrentYear /> {profile.name}
         </p>
-        <p>{footer.builtWith}</p>
+        <p>
+          {footer.builtWith} · {profile.location}
+        </p>
       </Container>
     </footer>
   );

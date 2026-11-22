@@ -1,3 +1,5 @@
+import { monoLabel } from "@/components/ui/styles";
+
 type SectionLabelProps = {
   index: string;
   label: string;
@@ -5,7 +7,7 @@ type SectionLabelProps = {
 
 export default function SectionLabel({ index, label }: SectionLabelProps) {
   return (
-    <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted">
+    <p className={`flex items-center gap-3 text-muted ${monoLabel}`}>
       <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
       {index} / {label}
     </p>

@@ -4,8 +4,9 @@ import { useId, useState } from "react";
 import { AnimatePresence, m } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useMotion } from "@/components/MotionProvider";
-import { focusRing } from "@/components/ui/focusRing";
+import { focusRing } from "@/components/ui/styles";
 import type { WorkArea } from "@/data/content";
+import { formatIndex } from "@/lib/formatIndex";
 
 type WorkAreaAccordionProps = {
   areas: WorkArea[];
@@ -25,7 +26,7 @@ export default function WorkAreaAccordion({ areas }: WorkAreaAccordionProps) {
         <AccordionItem
           key={area.title}
           area={area}
-          number={String(index + 1).padStart(2, "0")}
+          number={formatIndex(index + 1)}
           idPrefix={`${accordionId}-${index}`}
           isOpen={openIndex === index}
           onToggle={() => toggle(index)}

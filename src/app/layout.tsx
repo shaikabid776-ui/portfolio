@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import MotionToggle from "@/components/MotionToggle";
 import Navbar from "@/components/Navbar";
+import SkipLink from "@/components/SkipLink";
 import { MotionProvider } from "@/components/MotionProvider";
-import { motionPreferenceScript } from "@/components/motionPreference";
-import { revealStateScript } from "@/components/ui/revealState";
+import { motionPreferenceScript } from "@/lib/motionPreference";
+import { revealStateScript } from "@/lib/revealState";
 import { profile, siteMetadata } from "@/data/content";
 import { siteUrl } from "@/lib/siteUrl";
 import "./globals.css";
@@ -21,9 +22,11 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+// Only small labels use the mono font, all at the regular weight.
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -57,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: revealStateScript }} />
       </head>
       <body id="top" className="min-h-full flex flex-col">
+        <SkipLink />
         <MotionProvider>
           <Navbar />
           {children}

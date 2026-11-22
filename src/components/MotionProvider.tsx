@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useSyncExternalStore } from "react";
 import { LazyMotion, MotionConfig, domAnimation } from "framer-motion";
-import { motionStorageKey } from "@/components/motionPreference";
+import { motionStorageKey } from "@/lib/motionPreference";
 
 const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
 const listeners = new Set<() => void>();

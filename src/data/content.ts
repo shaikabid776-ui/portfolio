@@ -70,7 +70,6 @@ export type WorkItem = {
   company: boolean;
   github?: string;
   live?: string;
-  image?: string;
 };
 
 export type WorkContent = {
@@ -112,9 +111,15 @@ export type NavigationLink = {
 };
 
 export type Navigation = {
+  label: string;
+  skipLinkLabel: string;
   links: NavigationLink[];
   callToAction: NavigationLink;
   menuLabel: string;
+};
+
+export type MotionToggleContent = {
+  label: string;
 };
 
 export type HeroContent = {
@@ -124,13 +129,13 @@ export type HeroContent = {
   primaryAction: NavigationLink;
   secondaryAction: NavigationLink;
   scrollHint: string;
-  basedIn: string;
+  basedInLabel: string;
 };
 
 export const profile: Profile = {
   name: "Abid Shaik",
   role: "Frontend Engineer → Full Stack",
-  location: "Bengaluru, India",
+  location: "Bengaluru",
   tagline:
     "I build web apps that solve real business problems — from clean interfaces to the APIs behind them.",
   email: "shaikabid776@gmail.com",
@@ -146,6 +151,8 @@ export const siteMetadata: SiteMetadata = {
 };
 
 export const navigation: Navigation = {
+  label: "Main",
+  skipLinkLabel: "Skip to content",
   links: [
     { label: "About", sectionId: "about" },
     { label: "Journey", sectionId: "journey" },
@@ -154,10 +161,6 @@ export const navigation: Navigation = {
   ],
   callToAction: { label: "Let's talk", sectionId: "contact" },
   menuLabel: "Menu",
-};
-
-export type MotionToggleContent = {
-  label: string;
 };
 
 export const motionToggle: MotionToggleContent = {
@@ -171,7 +174,7 @@ export const hero: HeroContent = {
   primaryAction: { label: "View my work", sectionId: "work" },
   secondaryAction: { label: "Contact me", sectionId: "contact" },
   scrollHint: "Scroll to discover",
-  basedIn: "Based in Bengaluru",
+  basedInLabel: "Based in",
 };
 
 export const stats: Stat[] = [
@@ -335,5 +338,5 @@ export const contact: ContactContent = {
 };
 
 export const footer: FooterContent = {
-  builtWith: "Built with Next.js · Bengaluru",
+  builtWith: "Built with Next.js",
 };

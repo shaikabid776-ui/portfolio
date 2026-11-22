@@ -1,4 +1,4 @@
-import { focusRing } from "@/components/ui/focusRing";
+import { colorTransition, focusRing } from "@/components/ui/styles";
 
 const sizeClassNames = {
   small: "gap-1.5 px-4 py-2",
@@ -13,7 +13,7 @@ type ButtonProps = React.ComponentProps<"a"> & {
 export default function Button({ size = "medium", className = "", ...linkProps }: ButtonProps) {
   return (
     <a
-      className={`group inline-flex items-center rounded-full border border-line text-sm transition-colors hover:border-accent motion-off:transition-none ${sizeClassNames[size]} ${focusRing} ${className}`}
+      className={`group inline-flex items-center rounded-full border border-line text-sm hover:border-accent ${colorTransition} ${sizeClassNames[size]} ${focusRing} ${className}`}
       {...linkProps}
     />
   );

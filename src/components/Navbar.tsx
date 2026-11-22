@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { navigation, profile } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import Button from "@/components/ui/Button";
-import { focusRing } from "@/components/ui/focusRing";
+import { colorTransition, focusRing } from "@/components/ui/styles";
 import ScrambleText from "@/components/ui/ScrambleText";
 
 const sectionIds = navigation.links.map((link) => link.sectionId);
@@ -53,7 +53,7 @@ export default function Navbar() {
           {profile.name}
         </a>
 
-        <nav className="ml-auto hidden md:block">
+        <nav aria-label={navigation.label} className="ml-auto hidden md:block">
           <ul className="flex items-center gap-6">
             {navigation.links.map((link) => {
               const isActive = link.sectionId === activeSectionId;
@@ -63,7 +63,7 @@ export default function Navbar() {
                   <a
                     href={`#${link.sectionId}`}
                     aria-current={isActive ? "location" : undefined}
-                    className={`relative text-sm transition-colors hover:text-fg motion-off:transition-none ${
+                    className={`relative text-sm hover:text-fg ${colorTransition} ${
                       isActive ? "text-fg" : "text-muted"
                     } ${focusRing}`}
                   >
@@ -91,7 +91,7 @@ export default function Navbar() {
             <ScrambleText text={navigation.callToAction.label} />
             <ArrowUpRight
               aria-hidden="true"
-              className="size-4 transition-colors group-hover:text-accent motion-off:transition-none"
+              className={`size-4 group-hover:text-accent ${colorTransition}`}
             />
           </Button>
 
@@ -101,7 +101,7 @@ export default function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
-            className={`rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-fg motion-off:transition-none md:hidden ${focusRing}`}
+            className={`rounded-full px-4 py-2 text-sm text-muted hover:text-fg md:hidden ${colorTransition} ${focusRing}`}
           >
             {navigation.menuLabel}
           </button>
@@ -110,6 +110,7 @@ export default function Navbar() {
 
       <nav
         id="mobile-navigation"
+        aria-label={navigation.label}
         hidden={!isMenuOpen}
         className="mt-2 rounded-3xl border border-line bg-bg/90 p-2 backdrop-blur-md md:hidden"
       >
@@ -123,7 +124,7 @@ export default function Navbar() {
                   href={`#${link.sectionId}`}
                   aria-current={isActive ? "location" : undefined}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors hover:text-fg motion-off:transition-none ${
+                  className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm hover:text-fg ${colorTransition} ${
                     isActive ? "text-fg" : "text-muted"
                   } ${focusRing}`}
                 >

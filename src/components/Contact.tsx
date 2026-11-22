@@ -5,6 +5,7 @@ import Container from "@/components/ui/Container";
 import GitHubIcon from "@/components/ui/GitHubIcon";
 import LinkedInIcon from "@/components/ui/LinkedInIcon";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { contact, profile } from "@/data/content";
 
@@ -31,10 +32,7 @@ export default function Contact() {
       <Container>
         <Reveal blur>
           <SectionLabel index={contact.index} label={contact.label} />
-          <h2 className="mt-6 font-serif text-5xl leading-[1] tracking-tight md:text-7xl lg:text-8xl">
-            {contact.heading.lead}
-            <em className="block">{contact.heading.emphasis}</em>
-          </h2>
+          <SectionHeading heading={contact.heading} size="large" />
           <p className="mt-8 text-lg text-muted">{contact.intro}</p>
         </Reveal>
 

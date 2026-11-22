@@ -8,11 +8,13 @@ Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion + lucide-react.
 
 ## Structure
 
-- src/app – layout, page, globals.css
-- src/components – one file per section (Navbar, Hero, About, Journey, HowIWork, Work, Contact, Footer)
-- src/components/ui – small reusable pieces (SectionLabel, Button, Reveal)
+- src/app – layout, page, globals.css, plus generated metadata files (opengraph-image, icon, apple-icon, sitemap, robots)
+- src/components – one file per section (Navbar, Hero, Stats, About, Journey, HowIWork, Work, Contact, Footer) and their client parts (WorkAreaAccordion, CopyEmailButton, MotionProvider, MotionToggle, SkipLink)
+- src/components/ui – small reusable pieces (Button, Container, CountUp, Reveal, ScrambleText, SectionHeading, SectionLabel, GitHubIcon, LinkedInIcon) and shared class strings in styles.ts
 - src/hooks – small reusable client hooks (useActiveSection)
+- src/lib – non-component helpers (siteUrl, formatIndex, motionPreference and revealState head scripts, brandColors, imageFonts, monogramImage)
 - src/data/content.ts – ALL text content lives here, never hard-coded in components
+- assets/fonts – TTF files read by the generated images (next/og needs TTF, not woff2)
 
 ## Code rules
 

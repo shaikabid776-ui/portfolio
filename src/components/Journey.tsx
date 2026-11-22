@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { monoLabel } from "@/components/ui/styles";
 import { journey, type JourneyStep } from "@/data/content";
 
 const stepStagger = 0.1;
@@ -49,7 +50,7 @@ function TimelineDot({ isCurrent = false }: { isCurrent?: boolean }) {
 function TimelineStep({ step }: { step: JourneyStep }) {
   return (
     <>
-      <p className="font-mono text-xs uppercase tracking-widest text-accent">{step.period}</p>
+      <p className={`text-accent ${monoLabel}`}>{step.period}</p>
       <h3 className="mt-2 font-semibold">{step.title}</h3>
       <p className="mt-1 text-muted">{step.description}</p>
     </>
