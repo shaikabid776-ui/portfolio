@@ -193,7 +193,7 @@ export const about: AboutContent = {
     emphasis: "understanding people.",
   },
   paragraph:
-    "I started in Dharmavaram with a B.Sc in Maths, Physics and Computer Science, trained in Python full-stack, and joined Sirpi in Bengaluru as a frontend intern. Five months later I was full-time. Today I lead the frontend on a production-planning platform, build FastAPI backends on a life-science platform, and work directly with clients to turn their needs into software.",
+    "I grew up in Dharmavaram, completed my B.Sc in Maths, Physics and Computer Science at Sri Krishnadevaraya University, Anantapur, trained in Python full-stack, and joined Sirpi in Bengaluru as a frontend intern. Five months later I was full-time. Today I lead the frontend on a production-planning platform, build FastAPI backends on a life-science platform, and work directly with clients to turn their needs into software.",
   photoAlt: "Portrait of Abid Shaik",
 };
 
