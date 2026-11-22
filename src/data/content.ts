@@ -67,6 +67,21 @@ export type WorkItem = {
   image?: string;
 };
 
+export type WorkContent = {
+  index: string;
+  label: string;
+  heading: SectionHeadingContent;
+  intro: string;
+  companyLabel: string;
+  githubLabel: string;
+  liveLabel: string;
+  note: {
+    text: string;
+    linkLabel: string;
+  };
+  projects: WorkItem[];
+};
+
 export type NavigationLink = {
   label: string;
   sectionId: string;
@@ -213,37 +228,53 @@ export const howIWork: HowIWorkContent = {
   ],
 };
 
-export const work: WorkItem[] = [
-  {
-    title: "Production Planning Platform",
-    category: "Frontend lead",
-    description:
-      "Predicts the delivery week for each sales order by tracing parts, stock and purchase orders, with the reason for any delay.",
-    tags: ["React", "TypeScript", "TanStack Table", "ECharts"],
-    company: true,
+export const work: WorkContent = {
+  index: "04",
+  label: "Selected work",
+  heading: {
+    lead: "Ideas are a start.",
+    emphasis: "This is the work.",
   },
-  {
-    title: "Life-Science Prediction APIs",
-    category: "Backend",
-    description:
-      "Heat-map and export APIs combining results from 4 hosted AI models, with migrations and tests.",
-    tags: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic"],
-    company: true,
+  intro: "A few things I've helped build.",
+  companyLabel: "Company project",
+  githubLabel: "GitHub",
+  liveLabel: "Live site",
+  note: {
+    text: "Personal projects coming soon — follow along on",
+    linkLabel: "GitHub",
   },
-  {
-    title: "AI-Powered EdTech Platform",
-    category: "Frontend",
-    description:
-      "Multi-role learning platform with AI lessons, quizzes and voice in 10 Indian languages.",
-    tags: ["React", "Zustand", "ElevenLabs", "Sarvam AI"],
-    company: true,
-  },
-  {
-    title: "Social Media Automation Tool",
-    category: "Frontend",
-    description:
-      "Schedules and auto-publishes Instagram and Facebook posts with AI image generation.",
-    tags: ["React", "Supabase", "Meta Graph API", "FAL.ai"],
-    company: true,
-  },
-];
+  projects: [
+    {
+      title: "Production Planning Platform",
+      category: "Frontend lead",
+      description:
+        "Predicts the delivery week for each sales order by tracing parts, stock and purchase orders, with the reason for any delay.",
+      tags: ["React", "TypeScript", "TanStack Table", "ECharts"],
+      company: true,
+    },
+    {
+      title: "Life-Science Prediction APIs",
+      category: "Backend",
+      description:
+        "Heat-map and export APIs combining results from 4 hosted AI models, with migrations and tests.",
+      tags: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic"],
+      company: true,
+    },
+    {
+      title: "AI-Powered EdTech Platform",
+      category: "Frontend",
+      description:
+        "Multi-role learning platform with AI lessons, quizzes and voice in 10 Indian languages.",
+      tags: ["React", "Zustand", "ElevenLabs", "Sarvam AI"],
+      company: true,
+    },
+    {
+      title: "Social Media Automation Tool",
+      category: "Frontend",
+      description:
+        "Schedules and auto-publishes Instagram and Facebook posts with AI image generation.",
+      tags: ["React", "Supabase", "Meta Graph API", "FAL.ai"],
+      company: true,
+    },
+  ],
+};

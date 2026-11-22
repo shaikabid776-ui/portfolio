@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import HowIWork from "@/components/HowIWork";
 import Journey from "@/components/Journey";
 import Stats from "@/components/Stats";
+import Work from "@/components/Work";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       <About />
       <Journey />
       <HowIWork />
-      <section id="work" className="min-h-screen border-t border-line" />
+      <Work />
       <section id="contact" className="min-h-screen border-t border-line" />
     </main>
   );

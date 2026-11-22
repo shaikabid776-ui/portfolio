@@ -1,0 +1,113 @@
+import { ArrowUpRight } from "lucide-react";
+import Container from "@/components/ui/Container";
+import GitHubIcon from "@/components/ui/GitHubIcon";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
+import SectionLabel from "@/components/ui/SectionLabel";
+import { focusRing } from "@/components/ui/focusRing";
+import { profile, work, type WorkItem } from "@/data/content";
+
+const rowStagger = 0.1;
+
+const iconLinkClassName = `text-muted transition-colors hover:text-accent motion-reduce:transition-none ${focusRing}`;
+
+export default function Work() {
+  return (
+    <section id="work" className="border-t border-line py-24 md:py-32">
+      <Container>
+        <Reveal className="md:flex md:items-end md:justify-between md:gap-16">
+          <div>
+            <SectionLabel index={work.index} label={work.label} />
+            <SectionHeading heading={work.heading} />
+          </div>
+          <p className="mt-6 text-lg text-muted md:mt-0">{work.intro}</p>
+        </Reveal>
+
+        <ol className="mt-16 divide-y divide-line border-y border-line">
+          {work.projects.map((project, index) => (
+            <li key={project.title} className="group">
+              <Reveal delay={index * rowStagger}>
+                <ProjectRow project={project} number={index + 1} />
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+
+        <p className="mt-10 text-sm text-muted">
+          {work.note.text}{" "}
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-fg underline underline-offset-4 transition-colors hover:text-accent motion-reduce:transition-none ${focusRing}`}
+          >
+            {work.note.linkLabel}
+          </a>
+        </p>
+      </Container>
+    </section>
+  );
+}
+
+type ProjectRowProps = {
+  project: WorkItem;
+  number: number;
+};
+
+function ProjectRow({ project, number }: ProjectRowProps) {
+  return (
+    <div className="grid gap-4 py-10 transition-transform duration-300 ease-out md:grid-cols-[10rem_1fr_auto] md:gap-8 md:group-hover:translate-x-2 motion-reduce:transition-none motion-reduce:md:group-hover:translate-x-0">
+      <p className="flex gap-4 font-mono text-xs uppercase tracking-widest text-muted md:flex-col md:gap-2">
+        <span>{String(number).padStart(2, "0")}</span>
+        <span>{project.category}</span>
+      </p>
+
+      <div>
+        <h3 className="font-serif text-3xl leading-tight transition-colors duration-300 group-hover:text-accent motion-reduce:transition-none md:text-4xl">
+          {project.title}
+        </h3>
+        <p className="mt-3 max-w-2xl text-muted">{project.description}</p>
+        <p className="mt-4 font-mono text-xs text-muted">{project.tags.join(" · ")}</p>
+      </div>
+
+      <ProjectMeta project={project} />
+    </div>
+  );
+}
+
+function ProjectMeta({ project }: { project: WorkItem }) {
+  if (project.company) {
+    return (
+      <p className="font-mono text-xs uppercase tracking-widest text-muted">
+        {work.companyLabel}
+      </p>
+    );
+  }
+
+  return (
+    <div className="flex items-start gap-4">
+      {project.github && (
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${work.githubLabel} – ${project.title}`}
+          className={iconLinkClassName}
+        >
+          <GitHubIcon className="size-5" />
+        </a>
+      )}
+      {project.live && (
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${work.liveLabel} – ${project.title}`}
+          className={iconLinkClassName}
+        >
+          <ArrowUpRight aria-hidden="true" className="size-5" />
+        </a>
+      )}
+    </div>
+  );
+}
