@@ -23,6 +23,17 @@ html {
   color-scheme: dark;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Keeps section tops clear of the fixed navbar after an anchor jump. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);

@@ -38,6 +38,17 @@ export type WorkItem = {
   image?: string;
 };
 
+export type NavigationLink = {
+  label: string;
+  sectionId: string;
+};
+
+export type Navigation = {
+  links: NavigationLink[];
+  callToAction: NavigationLink;
+  menuLabel: string;
+};
+
 export const profile: Profile = {
   name: "Abid Shaik",
   role: "Frontend Engineer → Full Stack",
@@ -48,6 +59,17 @@ export const profile: Profile = {
   github: "https://github.com/shaikabid776-ui",
   linkedin: "https://linkedin.com/in/abid-shaik1",
   resume: "/Abid_Shaik_Resume.pdf",
+};
+
+export const navigation: Navigation = {
+  links: [
+    { label: "About", sectionId: "about" },
+    { label: "Journey", sectionId: "journey" },
+    { label: "Work", sectionId: "work" },
+    { label: "Contact", sectionId: "contact" },
+  ],
+  callToAction: { label: "Let's talk", sectionId: "contact" },
+  menuLabel: "Menu",
 };
 
 export const stats: Stat[] = [

@@ -11,6 +11,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion + lucide-react.
 - src/app – layout, page, globals.css
 - src/components – one file per section (Navbar, Hero, About, Journey, HowIWork, Work, Contact, Footer)
 - src/components/ui – small reusable pieces (SectionLabel, Button, Reveal)
+- src/hooks – small reusable client hooks (useActiveSection)
 - src/data/content.ts – ALL text content lives here, never hard-coded in components
 
 ## Code rules
